@@ -18,6 +18,7 @@ package lvm
 
 import (
 	"fmt"
+	"k8s.io/utils/exec"
 	"os"
 	"strings"
 	//"strconv"
@@ -30,7 +31,7 @@ import (
 	"google.golang.org/grpc/status"
 	//"k8s.io/client-go/kubernetes"
 	//"k8s.io/client-go/tools/clientcmd"
-	"k8s.io/kubernetes/pkg/util/mount"
+	"k8s.io/utils/mount"
 
 	"k8s.io/kubernetes/pkg/util/resizefs"
 	//k8smount "k8s.io/kubernetes/pkg/util/mount"
@@ -84,7 +85,7 @@ func (ns *nodeServer) NodePublishVolume(ctx context.Context, req *csi.NodePublis
 
 	targetPath := req.GetTargetPath()
 
-	notMnt, err := ns.mounter.IsNotMountPoint(targetPath)
+	notMnt, err := mount.IsNotMountPoint(ns.mounter, targetPath)
 	if err != nil {
 		if _, err := os.Stat(targetPath); os.IsNotExist(err) {
 			if err := os.MkdirAll(targetPath, 0750); err != nil {
@@ -241,7 +242,7 @@ func (ns *nodeServer) NodeUnpublishVolume(ctx context.Context, req *csi.NodeUnpu
 	//volumeID := req.GetVolumeId()
 
 	// Unmount only if the target path is really a mount point.
-	if notMnt, err := mount.New("").IsNotMountPoint(targetPath); err != nil {
+	if notMnt, err := mount.IsNotMountPoint(mount.New(""), targetPath); err != nil {
 		if !os.IsNotExist(err) {
 			return nil, status.Error(codes.Internal, err.Error())
 		}
@@ -379,7 +380,8 @@ func (ns *nodeServer) resizeVolume(ctx context.Context, volumeID, targetPath str
 	//expand lvm volume
 
 	// use resizer to expand volume filesystem
-	realExec := mount.NewOsExec()
+	//realExec := mount.NewOsExec()
+	realExec := exec.New()
 	resizer := resizefs.NewResizeFs(&mount.SafeFormatAndMount{Interface: ns.mounter, Exec: realExec})
 	ok, err := resizer.Resize(devicePath, targetPath)
 	if err != nil {

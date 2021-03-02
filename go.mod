@@ -4,30 +4,54 @@ go 1.13
 
 require (
 	github.com/container-storage-interface/spec v1.3.0
-	github.com/davecgh/go-spew v1.1.1
-	github.com/evanphx/json-patch v4.5.0+incompatible
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/groupcache v0.0.0-20190129154638-5b532d6fd5ef
-	github.com/golang/protobuf v1.3.3
-	github.com/google/uuid v1.1.1
-	github.com/googleapis/gnostic v0.2.0
-	github.com/imdario/mergo v0.3.7
+	github.com/golang/protobuf v1.4.3
 	github.com/kubernetes-csi/csi-lib-utils v0.7.0
 	github.com/kubernetes-csi/external-snapshotter/v2 v2.1.1
+	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/pborman/uuid v1.2.0
-	github.com/sirupsen/logrus v1.2.0
-	github.com/spf13/pflag v1.0.5
-	golang.org/x/crypto v0.0.0-20190820162420-60c769a6c586
-	golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553
-	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
-	golang.org/x/sys v0.0.0-20191220220014-0732a990476f
-	golang.org/x/text v0.3.2
-	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4
-	google.golang.org/grpc v1.30.0
-	k8s.io/api v0.17.3
-	k8s.io/apimachinery v0.17.3
-	k8s.io/client-go v0.17.0
+	github.com/sirupsen/logrus v1.6.0
+	github.com/spf13/cobra v1.1.3
+	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b
+	google.golang.org/grpc v1.31.0
+	google.golang.org/grpc/examples v0.0.0-20210301210255-fc8f38cccf75 // indirect
+	gopkg.in/square/go-jose.v2 v2.5.1 // indirect
+	k8s.io/api v0.17.1
+	k8s.io/apiextensions-apiserver v0.20.4 // indirect
+	k8s.io/apimachinery v0.20.4
+	k8s.io/client-go v0.20.4
+	k8s.io/cloud-provider v0.20.4 // indirect
+	k8s.io/component-base v0.20.4
+	k8s.io/csi-translation-lib v0.20.4 // indirect
 	k8s.io/klog v1.0.0
-	k8s.io/kubernetes v1.14.0
-	k8s.io/utils v0.0.0-20191114184206-e782cd3c129f
+	k8s.io/kubernetes v1.17.1
+	k8s.io/utils v0.0.0-20201110183641-67b214c5f920
+)
+
+replace (
+	google.golang.org/grpc => google.golang.org/grpc v1.23.0
+	k8s.io/api => k8s.io/api v0.0.0-20191122220107-b5267f2975e0
+	k8s.io/apiextensions-apiserver => k8s.io/apiextensions-apiserver v0.0.0-20191122222427-64482ea217ff
+	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20191121175448-79c2a76c473a
+	k8s.io/apiserver => k8s.io/apiserver v0.0.0-20191121180716-5a28f8b2ad8e
+	k8s.io/cli-runtime => k8s.io/cli-runtime v0.0.0-20191122222818-9150eb3ded31
+	k8s.io/client-go => k8s.io/client-go v0.0.0-20191121175918-3a262fe58afa
+	k8s.io/cloud-provider => k8s.io/cloud-provider v0.0.0-20191121022508-6371aabbd7a7
+	k8s.io/cluster-bootstrap => k8s.io/cluster-bootstrap v0.0.0-20191122223827-289de4a64c1c
+	k8s.io/code-generator => k8s.io/code-generator v0.0.0-20191121015212-c4c8f8345c7e
+	k8s.io/component-base => k8s.io/component-base v0.0.0-20191122163614-46ba8a4433be
+	k8s.io/cri-api => k8s.io/cri-api v0.0.0-20191121183020-775aa3c1cf73
+	k8s.io/csi-translation-lib => k8s.io/csi-translation-lib v0.0.0-20191121022617-4b18d293964d
+	k8s.io/gengo => k8s.io/gengo v0.0.0-20191120174120-e74f70b9b27e
+	k8s.io/kube-aggregator => k8s.io/kube-aggregator v0.0.0-20191122221605-1e8d331e4dcc
+	k8s.io/kube-controller-manager => k8s.io/kube-controller-manager v0.0.0-20191122223648-5cfd5067047c
+	k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20191107075043-30be4d16710a
+	k8s.io/kube-proxy => k8s.io/kube-proxy v0.0.0-20191122223145-16f2c0c680a0
+	k8s.io/kube-scheduler => k8s.io/kube-scheduler v0.0.0-20191121022142-fe73241eced9
+	k8s.io/kubectl => k8s.io/kubectl v0.0.0-20191122225023-1e3c8b70f494
+	k8s.io/kubelet => k8s.io/kubelet v0.0.0-20191122223325-9316382755ad
+	k8s.io/legacy-cloud-providers => k8s.io/legacy-cloud-providers v0.0.0-20191122224431-860df69ff5cc
+	k8s.io/metrics => k8s.io/metrics v0.0.0-20191122222628-19ed227de2b6
+	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.0.0-20191122221846-294c70c3d5d4
+	k8s.io/utils => k8s.io/utils v0.0.0-20191114200735-6ca3b61696b6
 )
