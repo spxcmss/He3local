@@ -1,3 +1,3 @@
-# Kubernetes Community Code of Conduct
+# He3local Community Code of Conduct
 
-Please refer to our [Kubernetes Community Code of Conduct](https://git.k8s.io/community/code-of-conduct.md)
+He3local follows the [Cloud Native Computing Foundation Code of Conduct](https://github.com/cncf/foundation/blob/master/code-of-conduct.md).
