@@ -37,7 +37,7 @@ kubectl apply -f ./deploy/csi-hostpath-resizer.yaml
 ```
 - step 7: Create csi snapshot controller
 ```shell
-kubectl apply -f ./deploy/setup-snapshot-controller.yaml
+kubectl apply -f ./deploy/csi-hostpath-snapshotter.yaml
 ```
 - step 8: Create lvm scheduler
 ```shell
