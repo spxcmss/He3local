@@ -1,6 +1,6 @@
-# CSI Hostpath Driver
+# He3local
 
-This repository hosts the CSI Hostpath driver and all of its build and dependent configuration files to deploy the driver.
+In view of the problems of database using local storage on K8S, He3local proposed a local dynamic storage scheme based on CSI+LVM, which decoupled local storage and K8S through CSI provided by K8S, realized dynamic management, online capacity expansion, snapshot and other functions of local storage using LVM technology, and added location and capacity scheduling factors on the basis of native K8S scheduler to achieve optimal local storage scheduling.
 
 ## Pre-requisite
 - Kubernetes cluster
